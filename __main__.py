@@ -16,7 +16,7 @@ def main():
     screen: Surface = pygame.display.set_mode((Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT))
 
     Constants.load_media()
-    pygame.display.set_icon(Constants.EASY_ENEMY_SURFACE)
+    pygame.display.set_icon(Constants.EASY_ENEMY_SURFACES[0])
     pygame.display.set_caption(Constants.APPLICATION_NAME)
 
     controls: ControlsWindowController = ControlsWindowController(screen)

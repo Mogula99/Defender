@@ -49,9 +49,9 @@ def test_spawn_enemies():
         assert enemy.direction.xCoord == DirectionVector.create_vector(enemy.position, player_position).xCoord
         assert enemy.direction.yCoord == DirectionVector.create_vector(enemy.position, player_position).yCoord
 
-        if enemy.image == Constants.BOSS_ENEMY_SURFACE:
+        if enemy.image == Constants.BOSS_ENEMY_SURFACES[0]:
             boss_enemies_cnt += 1
-        elif enemy.image == Constants.NORMAL_ENEMY_SURFACE:
+        elif enemy.image == Constants.NORMAL_ENEMY_SURFACES[0]:
             normal_enemies_cnt += 1
         else:
             easy_enemies_cnt += 1

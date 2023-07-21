@@ -18,7 +18,7 @@ def constants_fixture() -> Enemy:
     pygame.init()
     screen: Surface = pygame.display.set_mode((Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT))
     Constants.load_media()
-    enemy: Enemy = Enemy(10, Position(0, 0), screen, DirectionVector(0, 0), 0)
+    enemy: Enemy = Enemy(10, Position(0, 0), [screen], DirectionVector(0, 0), 1)
     return enemy
 
 

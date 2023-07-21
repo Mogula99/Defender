@@ -155,9 +155,9 @@ class Constants:
     BLUE_PROJECTILE_SURFACE: Surface = None
     GREY_TOWER_SURFACE: Surface = None
 
-    EASY_ENEMY_SURFACE: Surface = None
-    NORMAL_ENEMY_SURFACE: Surface = None
-    BOSS_ENEMY_SURFACE: Surface = None
+    EASY_ENEMY_SURFACES: list[Surface] = []
+    NORMAL_ENEMY_SURFACES: list[Surface] = []
+    BOSS_ENEMY_SURFACES: list[Surface] = []
 
     POINTER_SURFACE = None
 
@@ -183,15 +183,20 @@ class Constants:
         Constants.GREY_TOWER_SURFACE = Constants.__load_image("grey_tower.png")
         Constants.GREY_PROJECTILE_SURFACE = Constants.BLACK_PROJECTILE_SURFACE
 
-        Constants.EASY_ENEMY_SURFACE = Constants.__load_image("easy_enemy.png")
-        Constants.NORMAL_ENEMY_SURFACE = Constants.__load_image("normal_enemy.png")
-        Constants.BOSS_ENEMY_SURFACE = Constants.__load_image("boss_enemy.png")
+        Constants.EASY_ENEMY_SURFACES = Constants.__load_images("easy_enemy")
+        Constants.NORMAL_ENEMY_SURFACES = Constants.__load_images("normal_enemy")
+        Constants.BOSS_ENEMY_SURFACES = Constants.__load_images("boss_enemy")
         Constants.POINTER_SURFACE = Constants.__load_image("pointer.png")
 
         # Constants.TITLE_FONT = pygame.fonts.Font(None, 50)
         # Constants.TEXT_FONT = pygame.fonts.Font(None, 30)
         Constants.TITLE_FONT = Constants.__load_font("FFFFORWA.TTF", 40)
         Constants.TEXT_FONT = Constants.__load_font("FFFFORWA.TTF", 14)
+
+    @staticmethod
+    def __load_images(folder_name: str) -> list[Surface]:
+        folder_path: str = os.path.join(Constants.PACKAGE_PATH, Constants.IMAGES_PATH, folder_name)
+        return [Constants.__load_image(os.path.join(folder_path, file_name)) for file_name in sorted(os.listdir(folder_path))]
 
     @staticmethod
     def __load_image(image_name: str) -> Surface:

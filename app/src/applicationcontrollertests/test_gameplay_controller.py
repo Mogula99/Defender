@@ -102,8 +102,8 @@ def test_update_game1():
     ghost_projectile: GhostProjectile = GhostProjectile(Position(0, 0), basic_surface, DirectionVector(0, -1), 1, 0, 0,
                                                         0)
 
-    enemy_1: Enemy = Enemy(10, Position(500, 500), basic_surface, DirectionVector(1, 0), 1)
-    enemy_2: Enemy = Enemy(10, Position(-500, -500), basic_surface, DirectionVector(0, -1), 1)
+    enemy_1: Enemy = Enemy(10, Position(500, 500), [basic_surface], DirectionVector(1, 0), 1)
+    enemy_2: Enemy = Enemy(10, Position(-500, -500), [basic_surface], DirectionVector(0, -1), 1)
 
     gameplay_controller.basic_projectiles_group.add(basic_projectile)
     gameplay_controller.explosive_projectiles_group.add(explosive_projectile)
@@ -174,11 +174,11 @@ def test_update_game3():
     bouncing_projectile: BouncingProjectile = BouncingProjectile(Position(450, 50), basic_surface, DirectionVector(1, 0), 1, 3, 0, 10)
     ghost_projectile: GhostProjectile = GhostProjectile(Position(600, 50), basic_surface, DirectionVector(1, 0), 1, 5, 0, 20)
 
-    enemy_1: Enemy = Enemy(2, Position(101, 50), basic_surface, DirectionVector(1, 0), 0)
-    enemy_2: Enemy = Enemy(2, Position(251, 50), basic_surface, DirectionVector(1, 0), 0)
-    enemy_3: Enemy = Enemy(2, Position(252, 50), basic_surface, DirectionVector(1, 0), 0)
-    enemy_4: Enemy = Enemy(2, Position(451, 50), basic_surface, DirectionVector(1, 0), 0)
-    enemy_5: Enemy = Enemy(2, Position(601, 50), basic_surface, DirectionVector(1, 0), 0)
+    enemy_1: Enemy = Enemy(2, Position(101, 50), [basic_surface], DirectionVector(1, 0), 1)
+    enemy_2: Enemy = Enemy(2, Position(251, 50), [basic_surface], DirectionVector(1, 0), 1)
+    enemy_3: Enemy = Enemy(2, Position(252, 50), [basic_surface], DirectionVector(1, 0), 1)
+    enemy_4: Enemy = Enemy(2, Position(451, 50), [basic_surface], DirectionVector(1, 0), 1)
+    enemy_5: Enemy = Enemy(2, Position(601, 50), [basic_surface], DirectionVector(1, 0), 1)
 
     gameplay_controller.basic_projectiles_group.add(basic_projectile)
     gameplay_controller.explosive_projectiles_group.add(explosive_projectile)
@@ -233,7 +233,7 @@ def test_update_game4():
     gameplay_controller.ghost_tower_group.add(blue_tower)
     gameplay_controller.basic_tower_group.add(grey_tower)
 
-    enemy_1: Enemy = Enemy(2, Position(601, 50), basic_surface, DirectionVector(1, 0), 0)
+    enemy_1: Enemy = Enemy(2, Position(601, 50), [basic_surface], DirectionVector(1, 0), 1)
     gameplay_controller.enemies_group.add(enemy_1)
 
     old_black_value = 1000

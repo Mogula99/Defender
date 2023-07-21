@@ -51,9 +51,9 @@ def test_apply_special_ability():
 
     ghost_projectile.pass_through_count = 3
 
-    enemy_hit: Enemy = Enemy(0, Position(0, 0), screen, DirectionVector(0, 0), 0)
-    enemy1: Enemy = Enemy(0, Position(0, 5), screen, DirectionVector(0, 0), 0)
-    enemy2: Enemy = Enemy(0, Position(-6, 0), screen, DirectionVector(0, 0), 0)
+    enemy_hit: Enemy = Enemy(0, Position(0, 0), [screen], DirectionVector(0, 0), 1)
+    enemy1: Enemy = Enemy(0, Position(0, 5), [screen], DirectionVector(0, 0), 1)
+    enemy2: Enemy = Enemy(0, Position(-6, 0), [screen], DirectionVector(0, 0), 1)
 
     enemies: list[Enemy] = [enemy_hit, enemy1, enemy2]
 

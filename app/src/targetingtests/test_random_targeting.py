@@ -31,9 +31,9 @@ def test_select_target():
 
     tower_position: Position = Position(0, 0)
 
-    enemy1: Enemy = Enemy(10, Position(5, 0), screen, DirectionVector(0, 0), 1)
-    enemy2: Enemy = Enemy(10, Position(-5, 0), screen, DirectionVector(0, 0), 1)
-    enemy3: Enemy = Enemy(10, Position(50, 50), screen, DirectionVector(0, 0), 1)
+    enemy1: Enemy = Enemy(10, Position(5, 0), [screen], DirectionVector(0, 0), 1)
+    enemy2: Enemy = Enemy(10, Position(-5, 0), [screen], DirectionVector(0, 0), 1)
+    enemy3: Enemy = Enemy(10, Position(50, 50), [screen], DirectionVector(0, 0), 1)
     enemies: list[Enemy] = [enemy1, enemy2, enemy3]
 
     target: Enemy = targeting.select_target(tower_position, enemies)

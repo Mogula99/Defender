@@ -90,6 +90,7 @@ def test_change_focus2():
 
     main_menu_controller.focus_index = 1
     main_menu_controller.focused_button = main_menu_controller.buttons_group.sprites()[1]
+    main_menu_controller.disabled_buttons = []
 
     old_focus_index = main_menu_controller.focus_index
     old_focused_button = main_menu_controller.focused_button
@@ -99,6 +100,7 @@ def test_change_focus2():
     new_focus_index = main_menu_controller.focus_index
     new_focused_button = main_menu_controller.focused_button
 
+    assert len(main_menu_controller.disabled_buttons) == 0
     assert old_focus_index != new_focus_index
     assert old_focused_button != new_focused_button
     assert old_focus_index == 1

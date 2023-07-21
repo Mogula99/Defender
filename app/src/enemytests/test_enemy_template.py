@@ -19,7 +19,7 @@ def constants_fixture() -> EnemyTemplate:
     pygame.init()
     screen: Surface = pygame.display.set_mode((Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT))
     Constants.load_media()
-    enemy_template: EnemyTemplate = EnemyTemplate(15, screen, 15)
+    enemy_template: EnemyTemplate = EnemyTemplate(15, [screen], 15)
     return enemy_template
 
 
@@ -35,6 +35,6 @@ def test_create_enemy():
     assert created_enemy.position.xCoord == 0
     assert created_enemy.position.yCoord == 0
     assert created_enemy.speed == enemy_template.speed
-    assert created_enemy.image == enemy_template.surface
+    assert created_enemy.image == enemy_template.surfaces[0]
     assert created_enemy.direction.xCoord == 0
     assert created_enemy.direction.yCoord == 0

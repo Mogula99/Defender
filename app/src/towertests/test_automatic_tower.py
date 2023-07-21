@@ -34,8 +34,8 @@ def test_auto_fire():
 
     tower.cooldown = 0
 
-    near_enemy: Enemy = Enemy(10, Position(100, 100), screen, DirectionVector(0, 0), 0)
-    far_enemy: Enemy = Enemy(10, Position(1000, 1000), screen, DirectionVector(0, 0), 0)
+    near_enemy: Enemy = Enemy(10, Position(100, 100), [screen], DirectionVector(0, 0), 1)
+    far_enemy: Enemy = Enemy(10, Position(1000, 1000), [screen], DirectionVector(0, 0), 1)
     enemies: list[Enemy] = [near_enemy, far_enemy]
 
     fired_projectile: Projectile = tower.auto_fire(enemies)

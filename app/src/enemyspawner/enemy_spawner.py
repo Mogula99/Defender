@@ -20,9 +20,9 @@ class EnemySpawner:
         """
         Constructor of the EnemySpawner class
         """
-        self.easy_enemy_template: EnemyTemplate = EnemyTemplate(Constants.EASY_ENEMY_HEALTH, Constants.EASY_ENEMY_SURFACE, Constants.EASY_ENEMY_SPEED)
-        self.normal_enemy_template: EnemyTemplate = EnemyTemplate(Constants.NORMAL_ENEMY_HEALTH, Constants.NORMAL_ENEMY_SURFACE, Constants.NORMAL_ENEMY_SPEED)
-        self.boss_enemy_template: EnemyTemplate = EnemyTemplate(Constants.BOSS_ENEMY_HEALTH, Constants.BOSS_ENEMY_SURFACE, Constants.BOSS_ENEMY_SPEED)
+        self.easy_enemy_template: EnemyTemplate = EnemyTemplate(Constants.EASY_ENEMY_HEALTH, Constants.EASY_ENEMY_SURFACES, Constants.EASY_ENEMY_SPEED)
+        self.normal_enemy_template: EnemyTemplate = EnemyTemplate(Constants.NORMAL_ENEMY_HEALTH, Constants.NORMAL_ENEMY_SURFACES, Constants.NORMAL_ENEMY_SPEED)
+        self.boss_enemy_template: EnemyTemplate = EnemyTemplate(Constants.BOSS_ENEMY_HEALTH, Constants.BOSS_ENEMY_SURFACES, Constants.BOSS_ENEMY_SPEED)
         self.screen_offset_increase: int = 100
 
     def __count_enemies(self, round_number: int) -> int:
