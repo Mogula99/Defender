@@ -3,6 +3,7 @@ This module tests the GhostProjectile class
 """
 import pygame
 from pygame import Surface
+from pygame.sprite import Group
 
 from app.src.enemy.enemy import Enemy
 from app.src.projectile.ghost_projectile import GhostProjectile
@@ -60,12 +61,15 @@ def test_apply_special_ability():
     for enemy in enemies:
         assert enemy not in ghost_projectile.ignored_enemies
 
-    ghost_projectile.apply_special_ability(enemy_hit, enemies)
+    visual_effects: Group = pygame.sprite.Group()
+
+    ghost_projectile.apply_special_ability(enemy_hit, enemies, visual_effects)
 
     assert ghost_projectile.pass_through_count == 2
     assert enemy_hit in ghost_projectile.ignored_enemies
     assert enemy1 not in ghost_projectile.ignored_enemies
     assert enemy2 not in ghost_projectile.ignored_enemies
+    assert len(visual_effects) == 0
 
 
 def test_clone():

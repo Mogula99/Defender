@@ -23,9 +23,9 @@ def test_load_media():
     assert Constants.BLUE_TOWER_SURFACE is not None
     assert Constants.BLUE_PROJECTILE_SURFACE is not None
     assert Constants.GREY_TOWER_SURFACE is not None
-    assert Constants.EASY_ENEMY_SURFACES is not None
-    assert Constants.NORMAL_ENEMY_SURFACES is not None
-    assert Constants.BOSS_ENEMY_SURFACES is not None
+    assert Constants.EASY_ENEMY_SURFACES == []
+    assert Constants.NORMAL_ENEMY_SURFACES == []
+    assert Constants.BOSS_ENEMY_SURFACES == []
     assert Constants.POINTER_SURFACE is not None
     assert Constants.TITLE_FONT is not None
     assert Constants.TEXT_FONT is not None

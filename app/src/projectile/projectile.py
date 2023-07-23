@@ -3,6 +3,7 @@ This module defines the Projectile class
 """
 from abc import ABC, abstractmethod
 from pygame import Surface
+from pygame.sprite import Group
 
 from app.src.enemy.enemy import Enemy
 from app.src.gameobject.movable_gameobject import MovableGameObject
@@ -20,11 +21,12 @@ class Projectile(MovableGameObject, ABC):
         self.cooldown: float = cooldown
 
     @abstractmethod
-    def apply_special_ability(self, enemy_hit: Enemy, all_enemies: list[Enemy]):
+    def apply_special_ability(self, enemy_hit: Enemy, all_enemies: list[Enemy], visual_effects: Group):
         """
         Abstract method applies a special ability of the projectile.
         :param enemy_hit: Enemy that has been hit by the projectile
         :param all_enemies: List of all enemies still alive in the current round
+        :param visual_effects: A group of visual effects currently active
         """
 
     @abstractmethod

@@ -24,6 +24,7 @@ from app.src.savefilemanager.save_file_info import SaveFileInfo
 from app.src.savefilemanager.save_file_manager import SaveFileManager
 from app.src.tower.automatic_tower import AutomaticTower
 from app.src.tower.manual_tower import ManualTower
+from app.src.visualeffect.visual_effect import VisualEffect
 from app.utils.constants import Constants
 from app.utils.position import Position
 
@@ -99,6 +100,8 @@ class GameplayController(ApplicationController):
 
         self.save_manager: SaveFileManager = SaveFileManager()
 
+        self.visual_effects_group: Group[VisualEffect] = pygame.sprite.Group()
+
     def process_input(self):
         """
         Method responsible for handling the player's input
@@ -122,7 +125,7 @@ class GameplayController(ApplicationController):
         """
         groups_to_update: list[Group[GameObject]] = [self.basic_projectiles_group, self.enemies_group,
                                                      self.explosive_projectiles_group, self.bouncing_projectiles_group,
-                                                     self.ghost_projectiles_group]
+                                                     self.ghost_projectiles_group, self.visual_effects_group]
 
         # Update the positions of all the moving objects on the screen
         for group in groups_to_update:
@@ -132,6 +135,7 @@ class GameplayController(ApplicationController):
         self.__check_collisions()
         self.__update_cooldown()
         self.__fire_towers()
+        self.__check_finished_visual_effects()
 
         # Handle the situation when there are no more enemies in the current round
         self.__update_enemies_count(len(self.enemies_group))
@@ -218,12 +222,12 @@ class GameplayController(ApplicationController):
         Object to render are grouped up into groups that are being iterated over and drawn.
         """
         self.screen.blit(Constants.BACKGROUND_SURFACE, (0, 0))
-        #self.screen.fill(Constants.HIGHLIGHT_COLOR)
         groups_to_draw: list[Group[Sprite]] = [self.player_group, self.enemies_group,
                                                self.explosive_projectiles_group, self.bouncing_projectiles_group,
                                                self.ghost_projectiles_group, self.basic_projectiles_group,
                                                self.explosive_tower_group, self.bouncing_tower_group,
-                                               self.ghost_tower_group, self.basic_tower_group, self.texts_group]
+                                               self.ghost_tower_group, self.basic_tower_group, self.visual_effects_group,
+                                               self.texts_group]
 
         # draw all the objects on the screen
         for group in groups_to_draw:
@@ -257,7 +261,7 @@ class GameplayController(ApplicationController):
                 for enemy in self.enemies_group:
                     if enemy.rect.colliderect(projectile.rect):
                         # Not that great projectile polymorphism saved a lot of code repetition in this method
-                        projectile.apply_special_ability(enemy, self.enemies_group)
+                        projectile.apply_special_ability(enemy, self.enemies_group, self.visual_effects_group)
                         self.__check_enemy_health(enemy)
                         if projectile.should_destroy():
                             projectile_group.remove(projectile)
@@ -362,3 +366,8 @@ class GameplayController(ApplicationController):
                 fired_projectile: Projectile = tower.auto_fire(self.enemies_group.sprites())
                 if fired_projectile is not None:
                     projectile_group.add(fired_projectile)
+
+    def __check_finished_visual_effects(self):
+        for visual_effect in self.visual_effects_group:
+            if not visual_effect.is_active:
+                self.visual_effects_group.remove(visual_effect)

@@ -50,11 +50,13 @@ def test_apply_special_ability():
     assert enemy1.health == 0
     assert enemy2.health == 0
 
-    explosive_projectile.apply_special_ability(enemy_hit, enemies)
+    visual_effects = pygame.sprite.Group()
+    explosive_projectile.apply_special_ability(enemy_hit, enemies, visual_effects)
 
     assert enemy_hit.health == -84
     assert enemy1.health == -42
     assert enemy2.health == 0
+    assert len(visual_effects) == 1
 
 
 def test_clone():

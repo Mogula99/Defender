@@ -3,6 +3,7 @@ This module tests the BouncingProjectile class
 """
 import pygame
 from pygame import Surface
+from pygame.sprite import Group
 
 from app.src.enemy.enemy import Enemy
 from app.src.projectile.bouncing_projectile import BouncingProjectile
@@ -65,12 +66,14 @@ def test_apply_special_ability():
     assert bouncing_projectile.direction.yCoord == 0
     assert bouncing_projectile.ignore_enemy is None
 
-    bouncing_projectile.apply_special_ability(enemy_hit, enemies)
+    visual_effects: Group = pygame.sprite.Group()
+    bouncing_projectile.apply_special_ability(enemy_hit, enemies, visual_effects)
 
     assert bouncing_projectile.bounce_count == 9
     assert bouncing_projectile.direction.xCoord != 0
     assert bouncing_projectile.direction.yCoord != 0
     assert bouncing_projectile.ignore_enemy == enemy_hit
+    assert len(visual_effects) == 0
 
 
 def test_clone():

@@ -159,6 +159,10 @@ class Constants:
     NORMAL_ENEMY_SURFACES: list[Surface] = []
     BOSS_ENEMY_SURFACES: list[Surface] = []
 
+    SMALL_EXPLOSION_SURFACES: list[Surface] = []
+    MEDIUM_EXPLOSION_SURFACES: list[Surface] = []
+    LARGE_EXPLOSION_SURFACES: list[Surface] = []
+
     POINTER_SURFACE = None
 
     TITLE_FONT: pygame.font.Font = None
@@ -183,10 +187,15 @@ class Constants:
         Constants.GREY_TOWER_SURFACE = Constants.__load_image("grey_tower.png")
         Constants.GREY_PROJECTILE_SURFACE = Constants.BLACK_PROJECTILE_SURFACE
 
+        Constants.POINTER_SURFACE = Constants.__load_image("pointer.png")
+
         Constants.EASY_ENEMY_SURFACES = Constants.__load_images("easy_enemy")
         Constants.NORMAL_ENEMY_SURFACES = Constants.__load_images("normal_enemy")
         Constants.BOSS_ENEMY_SURFACES = Constants.__load_images("boss_enemy")
-        Constants.POINTER_SURFACE = Constants.__load_image("pointer.png")
+
+        Constants.SMALL_EXPLOSION_SURFACES = Constants.__load_images("explosion_small")
+        Constants.MEDIUM_EXPLOSION_SURFACES = Constants.__load_images("explosion_medium")
+        Constants.LARGE_EXPLOSION_SURFACES = Constants.__load_images("explosion_large")
 
         # Constants.TITLE_FONT = pygame.fonts.Font(None, 50)
         # Constants.TEXT_FONT = pygame.fonts.Font(None, 30)

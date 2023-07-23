@@ -2,7 +2,9 @@
 This module defines the BasicProjectile class
 """
 from __future__ import annotations
+
 from pygame import Surface
+from pygame.sprite import Group
 
 from app.src.enemy.enemy import Enemy
 from app.src.projectile.projectile import Projectile
@@ -18,11 +20,12 @@ class BasicProjectile(Projectile):
     def __init__(self, position: Position, surface: Surface, direction: DirectionVector, speed: float, damage: int, cooldown: float):
         Projectile.__init__(self, position, surface, direction, speed, damage, cooldown)
 
-    def apply_special_ability(self, enemy_hit: Enemy, all_enemies: list[Enemy]):
+    def apply_special_ability(self, enemy_hit: Enemy, all_enemies: list[Enemy], visual_effects: Group):
         """
         This method applies a special ability of the projectile.
         :param enemy_hit: Enemy that has been hit by the projectile
         :param all_enemies: List of all enemies still alive in the current round
+        :param visual_effects: A group of all visual effects currently active
         """
         # Not a great polymorphism, but it saved a lot of code repetition while handling collisions
         enemy_hit.receive_damage(self.damage)
