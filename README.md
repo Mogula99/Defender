@@ -1,6 +1,6 @@
 # DEFENDER
 
-![Screenshot ze hry](./media/game_screenshot.png)
+![Screenshot ze hry](./media/game_gif.GIF)
 
 ## Popis hry
 
