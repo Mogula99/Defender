@@ -2,59 +2,59 @@
 
 ![Screenshot ze hry](./media/game_gif.GIF)
 
-## Popis hry
+## Game Description
 
-Defender je tower defense hra, ve které hráč ovládá věž a střílí po nepřátelích. Za každé úspěšně dokončené kolo získá hráč možnost vybrat si jedno ze tří možných vylepšení. Vylepšení buď vylepšuje hráče (jeho černou věž), umožní hráči postavit jednu z automatizovaných věží nebo právě tyto automatizované věže vylepšuje.
+Defender is a tower defence game in which the player controls a tower and shoots at enemies. After every completed round, the player can choose one of three possible upgrades. The upgrade either upgrades the player (his black tower), allows the player to build one of the automated towers, or upgrades those automated towers.
 
-Po spuštění hry je hráč informován o tom, jak se hra ovládá (Controls window). Hráč je následně přesměrován do hlavního menu (MainMenu window), kde si může zvolit obtížnost a založit novou hru nebo pokračovat v poslední uložené hře.
+When the game starts, the player is informed about how the game is controlled (Controls window). The player is then taken to the MainMenu window, where they can choose the difficulty and start a new game or continue with the last saved game.
 
-Během hry na hráče ze stran obrazovky nabíhají nepřátelé a jeho úkol je ničit je projektily vystřelenými z jeho věže. Po zničení všech nepřátel je hráči zobrazeno okno s vylepšeními (Upgrade window), kde hráč dostane na výběr mezi 3 vylepšeními.
+During the game, enemies come towards the player from the sides of the screen, and his task is to kill them with projectiles fired from his tower. After killing all the enemies, the player is presented with an Upgrade window where the player gets to choose between 3 upgrades.
 
-Za každé dokončené kolo se hráči zlepšuje skóré, které je dále ovlivněno obtížností na kterou hráč hru hraje. Po úspěšném dokončení kola (a výběru vylepšení) je hra vždy uložena, tak aby si ji hráč mohl po vypnutí hry znovu načíst.
+For each completed round, the player's score increases. The score is further affected by the chosen difficulty. After completing a round (and selecting an upgrade), the game is always saved so the player can reload it after shutting it down.
 
-Ve hře se nachází 4 typy věži:
+There are four tower types in the game:
 
-- Červená ‒ Střílí projektily, které po kolizi s nepřítelem explodují a zraní okolní nepřátele
-- Zelená ‒ Střílí projektily, které se po kolizi s nepřítelem odrazí směrem k jinému nepříteli
-- Modrá ‒ Střílí projektily, které prochází nepřáteli a umožňují tak zranit více nepřátel najednou
-- Šedá ‒ Střílí obyčejné projektily, ale je schopna střílet je rychle
+- Red - Fires projectiles that explode upon collision with the enemy and injure nearby enemies.
+- Green - Fires projectiles that bounce towards another enemy after colliding.
+- Blue - Fires projectiles that pass through enemies, allowing them to wound multiple enemies at once.
+- Grey - Fires regular projectiles but fires them quickly.
 
-Všechny věže kromě modré míří na náhodné nepřátele, modrá věž míří na nejbližšího nepřítele.
+All towers except the blue tower aim at random enemies. The blue tower aims at the nearest enemy.
 
-Ve hře jsou dále 3 druhy nepřátel, které se kromě vzhledu liší počtem životů i rychlostí pohybu.
+There are also three types of enemies in the game, which, besides appearance, differ in the number of health points and movement speed.
 
-Podstatná část této hry byla vyvinuta v mém osobním repozitáři - https://gitlab.fit.cvut.cz/machaj52/python-semestralka.
+Most of this game was developed in my personal repository - https://gitlab.fit.cvut.cz/machaj52/python-semestralka.
 
-## Popis spuštění
+## Launch Description
 
-### Závislosti
+### Dependencies
 
-1, python3 ‒ verze alespoň 3.10 ‒ `sudo apt install python3`
+1, python3 - version at least 3.10 - `sudo apt install python3`
 
 2, pygame ‒ `python3 -m pip install -U pygame --user`
 
-### Spuštění
+### Running
 
-1, Nainstalujte potřebné závislosti
+1, Install the necessary dependencies
 
-2, Stáhněte si adresář z tohoto repozitáře 
+2, Download the directory from this repository
 
-3, Spusťte adresář ‒ `python3 -m <jmeno_adresare>`
+3, Run the game - `python3 -m <directory_name>`
 
-### Testování
+### Testing
 
-1, Nainstalujte pytest ‒ `pip install -U pytest`
+1, Install pytest - `pip install -U pytest`
 
-2, Spusťte testy ‒ `pytest <jmeno_adresare>` ‒ Nelekněte se spouštěných oken při testování. Pygame vyžaduje před načtením obrázků z adresářů spustit okno.
+2, Run the tests - `pytest <directory_name>` - Do not be startled by windows running while testing. Pygame requires you to run a window before loading images from directories.
 
-3, Nainstalujte pylint ‒ `pip install -U pytest`
+3, Install pylint - `pip install -U pytest`
 
-4, Spusťte pylint ‒ `pylint <jmeno_adresare> --disable=C0103,C0301,C0413,R0801,R0902,R0903,R0913`
+4, Run pylint - `pylint <directory_name> --disable=C0103,C0301,C0413,R0801,R0902,R0903,R0913`
 
-## Použité grafické assety
+## Used Graphic Assets
 
-- Herní pozadí - https://cainos.itch.io/pixel-art-top-down-basic
-- Věže - https://merchant-shade.itch.io/16x16-mini-world-sprites
-- Nepřátelé - https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack
-- Herní font - https://www.1001fonts.com/fff-forward-font.html
-- Ukazatel v menu - https://opengameart.org/content/rpg-gui-selection-arrow
+- Game background - https://cainos.itch.io/pixel-art-top-down-basic
+- Towers - https://merchant-shade.itch.io/16x16-mini-world-sprites
+- Enemies - https://anokolisa.itch.io/dungeon-crawler-pixel-art-asset-pack
+- Game font - https://www.1001fonts.com/fff-forward-font.html
+- Menu pointer - https://opengameart.org/content/rpg-gui-selection-arrow
